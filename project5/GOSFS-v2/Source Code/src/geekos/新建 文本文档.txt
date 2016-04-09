@@ -1,0 +1,51 @@
+/*
+ * Standerd in/out file
+ * 
+ * Written by Eric Bai
+ * 2006.5
+ * version 1.0
+ *
+ * This is free software.  You are permitted to use,
+ * redistribute, and modify it as specified in the file "COPYING".
+ */
+#include <limits.h>
+#include <geekos/errno.h>
+#include <geekos/kassert.h>
+#include <geekos/screen.h>
+#include <geekos/keyboard.h>
+#include <geekos/malloc.h>
+#include <geekos/string.h>
+#include <geekos/bitset.h>
+#include <geekos/synch.h>
+#include <geekos/bufcache.h>
+#include <geekos/stdio.h>
+#include <geekos/user.h>
+
+static int StdInput_Read(struct File *file, void *buf, ulong_t len)
+{
+
+}
+
+
+struct File_Ops s_stdInputFileOps = {
+    0, // FStat,
+    &StdInput_Read,
+    0, // Write,
+    0, // Seek,
+    0, // Close,
+    0, /* Read_Entry */
+};
+
+static int StdOutput_Write(struct File *file, void *buf, ulong_t len)
+{
+
+}
+
+struct File_Ops s_stdOutputFileOps = {
+    0, // FStat,
+    0, // Read,
+    &StdOutput_Write,
+    0, // Seek,
+    0, // Close,
+    0, /* Read_Entry */
+};
